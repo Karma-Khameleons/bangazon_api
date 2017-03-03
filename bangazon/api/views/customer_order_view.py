@@ -9,5 +9,5 @@ class OrderViewSet(viewsets.ModelViewSet):
     -@asimonia
     """
 
-    queryset = models.Order.objects.all().order_by('-customer')
+    queryset = models.CustomerOrder.objects.all().order_by('-customer')
     serializer_class = serializers.OrderSerializer
