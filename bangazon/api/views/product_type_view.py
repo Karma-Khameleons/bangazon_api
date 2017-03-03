@@ -11,5 +11,5 @@ class ProductTypeViewSet(viewsets.ModelViewSet):
 
     """
 
-    queryset = models.ProductType.objects.all().order_by('-category')
+    queryset = models.ProductType.objects.all().order_by('-label')
     serializer_class = serializers.ProductTypeSerializer
