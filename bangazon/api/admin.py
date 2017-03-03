@@ -1,9 +1,9 @@
 from django.contrib import admin
-from bang_app import models
+from api.models import *
 
-admin.site.register(models.Customer)
-admin.site.register(models.ProductType)
-admin.site.register(models.Product)
-admin.site.register(models.PaymentType)
-admin.site.register(models.CustomerOrder)
-admin.site.register(models.LineItem)
+admin.site.register(customer.Customer)
+admin.site.register(product_type.ProductType)
+admin.site.register(product.Product)
+admin.site.register(payment_type.PaymentType)
+admin.site.register(customer_order.CustomerOrder)
+admin.site.register(line_item.LineItem)

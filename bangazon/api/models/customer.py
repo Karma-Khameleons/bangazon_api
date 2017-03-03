@@ -20,9 +20,3 @@ class Customer(models.Model):
 
 	def __str__(self):
 		return "{}".format(self.user.first_name)
-
-	class Meta:
-		app_label="bang_app"
-
-	
-

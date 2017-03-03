@@ -1,9 +1,8 @@
-__all__ = [
-    'user_view',
-    'customer_view', 
-    'customer_order_view', 
-    'line_item_view', 
-    'payment_type_view', 
-    'product_view', 
-    'product_type_view',
-]
+
+from .customer_order_view import OrderViewSet
+from .customer_view import CustomerViewSet
+from .line_item_view import LineItemViewSet
+from .payment_type_view import PaymentTypeViewSet
+from .product_view import ProductViewSet
+from .product_type_view import ProductTypeViewSet
+from .user_view import UserViewSet
