@@ -8,4 +8,4 @@ class CustomerSerializer(serializers.HyperlinkedModelSerializer):
     """
     class Meta:
         model = Customer
-        fields = '__all__'
+        fields = ('user', 'street_address', 'city', 'state', 'zip_code')

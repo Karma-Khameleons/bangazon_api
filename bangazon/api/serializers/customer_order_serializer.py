@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from api.models import Order
+from api.models import CustomerOrder
+
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
 
     """
@@ -8,5 +9,5 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
     """
 
     class Meta:
-      model = Order
+      model = CustomerOrder
       fields = ('active', 'customer', 'payment_type', 'products', )
