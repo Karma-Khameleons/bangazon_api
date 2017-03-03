@@ -10,4 +10,4 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
       model = CustomerOrder
-      fields = ('active', 'customer', 'payment_type', 'products', )
+      fields = ('active_order', 'customer', 'payment_type', 'line_items', )
