@@ -8,4 +8,4 @@ class LineItemSerializer(serializers.HyperlinkedModelSerializer):
     """
     class Meta:
         model = LineItem
-        fields = ('order', 'product', 'quantity', 'url')
+        fields = ('id', 'order', 'product', 'quantity', 'url')
