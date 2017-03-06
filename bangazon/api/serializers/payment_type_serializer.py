@@ -10,5 +10,5 @@ class PaymentTypeSerializer(serializers.HyperlinkedModelSerializer):
     """
     class Meta:
         model = PaymentType
-        fields = ('customer', 'card_type', 'billing_name',
+        fields = ('id', 'customer', 'card_type', 'billing_name',
         'card_number','expiration_date', 'cvv', 'url')
