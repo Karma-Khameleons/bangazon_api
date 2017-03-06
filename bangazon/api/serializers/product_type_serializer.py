@@ -10,4 +10,4 @@ class ProductTypeSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = ProductType
-        fields = ('label', )
+        fields = ('label', 'url');
