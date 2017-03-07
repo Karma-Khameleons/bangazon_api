@@ -2,12 +2,15 @@ from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import logout, login, authenticate
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+import json
 from api import models
 
 
 
 
-class RegisterView(generics.RetrieveAptView):
+class RegisterView(generics.RetrieveAPIView):
     permission_classes = (AllowAny,)
 
     error_messages = {
@@ -22,7 +25,7 @@ class RegisterView(generics.RetrieveAptView):
             'user_id': None,
             })
 
-        @csrf_exempt
+    @csrf_exempt
     def post(self, request):
         permission_classes = (AllowAny,)
         """
@@ -39,11 +42,24 @@ class RegisterView(generics.RetrieveAptView):
             first_name=req_body['first_name'],
             last_name=req_body['last_name'],
             )
+        # new_user = authenticate(username=new_user['username'], password=new_user['password'])
+        models.Customer.objects.create(
+            user=new_user,
+            street_address=req_body['street_address'],
+            city=req_body['city'],
+            state=req_body['state'],
+            zip_code=req_body['zip_code']
+            )
+        success = False
+        if new_user is not None:
+            if new_user.is_active:
+                login(request, new_user)
+                data = json.dumps({
+                    'success': True,
+                    'username': new_user.username,
+                    'email': new_user.email,
+                })
+                return HttpResponse(data, content_type='application/json')
 
-        # models.Customer.objects.create(
-        #     user=new_user,
-        #     street_address=data['street_address'],
-        #     city=data['city'],
-        #     state=data['state'],
-        #     zip_code=data['zip_code']
-        #     )
+            return HttpResponse(self._error_response('disabled'), content_type='application/json')
+        return HttpResponse(self._error_response('invalid'), content_type='application/json')
