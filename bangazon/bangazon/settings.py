@@ -32,6 +32,8 @@ CORS_ORIGIN_WHITELIST = [
     "localhost:8080",
 ]
 
+CORS_ALLOW_CREDENTIALS = True
+
 
 
 
@@ -42,7 +44,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
-    'PAGE_SIZE': 10
 }
 
 INSTALLED_APPS = [
