@@ -7,3 +7,4 @@ from .product_view import ProductViewSet
 from .product_type_view import ProductTypeViewSet
 from .user_view import UserViewSet
 from .register_view import RegisterView
+from .login_view import LoginView
