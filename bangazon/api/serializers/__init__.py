@@ -6,3 +6,4 @@ from .product_serializer import ProductSerializer
 from .product_type_serializer import ProductTypeSerializer
 from .user_serializer import UserSerializer
 from .restricted_user_serializer import RestrictedUserSerializer
+from .register_serializer import RegisterSerializer

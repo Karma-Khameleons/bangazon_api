@@ -18,5 +18,7 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^register/', register_customer)
+    # url(r'^register/', register_customer)
+    # url(r'^login$', customer_view.LoginView.as_view()),
+    url(r'^register$', register_view.RegisterView.as_view()),
 ]
